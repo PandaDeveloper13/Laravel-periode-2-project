@@ -21,6 +21,14 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/registreren', function () {
+    return view('registreren');
+});
+
+Route::get('/wachtwoord-vergeten', function () {
+    return view('wachtwoord-vergeten');
+});
+
 // Student Routes
 Route::get('/dashboard', function () {
     return view('student_dashboard');

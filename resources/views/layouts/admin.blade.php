@@ -46,6 +46,9 @@
         .shadow-soft {
             box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.15);
         }
+        .gradient-lime {
+            background: linear-gradient(to bottom right, #d4e600, #f39200);
+        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen font-sans antialiased">
@@ -125,7 +128,7 @@
                     <h2 class="text-2xl font-bold text-gray-800">@yield('page-title', 'Dashboard')</h2>
                     <div class="flex items-center space-x-4">
                         <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 bg-gradient-to-br from-tcr-lime to-tcr-gold rounded-full flex items-center justify-center">
+                            <div class="w-10 h-10 gradient-lime rounded-full flex items-center justify-center">
                                 <span class="text-white font-bold">AD</span>
                             </div>
                             <div class="text-right">

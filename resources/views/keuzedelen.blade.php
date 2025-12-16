@@ -15,7 +15,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div class="h-64 bg-gradient-to-br from-tcr-green to-tcr-dark flex items-center justify-center relative">
+                <div class="h-64 gradient-green flex items-center justify-center relative">
                     <div class="absolute inset-0 bg-black/10"></div>
                     <span class="text-8xl text-white/90 font-bold relative z-10">A</span>
                 </div>
@@ -70,7 +70,7 @@
                         </ul>
                     </section>
 
-                    <div class="bg-gradient-to-r from-tcr-lime/10 to-tcr-gold/10 rounded-xl p-6">
+                    <div class="bg-green-50 rounded-xl p-6">
                         <h3 class="font-bold text-tcr-green mb-3">Capaciteit</h3>
                         <div class="mb-3">
                             <div class="flex justify-between text-sm mb-2">
@@ -78,7 +78,7 @@
                                 <span class="font-medium text-tcr-green">15 van 30 plaatsen</span>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="bg-gradient-to-r from-tcr-lime to-tcr-gold h-3 rounded-full" style="width: 50%"></div>
+                                <div class="gradient-lime h-3 rounded-full" style="width: 50%"></div>
                             </div>
                         </div>
                         <p class="text-sm text-gray-600">Er zijn nog 15 plaatsen beschikbaar voor dit keuzedeel.</p>
@@ -118,7 +118,7 @@
                 </dl>
             </div>
 
-            <div class="bg-gradient-to-br from-tcr-green to-tcr-dark text-white rounded-2xl shadow-xl p-6">
+            <div class="gradient-green text-white rounded-2xl shadow-xl p-6">
                 <h3 class="font-bold mb-4 text-lg">Direct inschrijven?</h3>
                 <p class="text-sm mb-6 text-gray-200">Schrijf je nu in voor dit keuzedeel en start je leertraject.</p>
                 <button class="w-full bg-tcr-lime text-tcr-green py-3 rounded-xl font-bold hover:bg-tcr-gold hover:text-white transform hover:scale-105 transition-all duration-300">

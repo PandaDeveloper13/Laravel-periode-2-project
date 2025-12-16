@@ -8,7 +8,7 @@
         <p class="text-gray-600">Beheer je keuzedelen en inschrijvingen</p>
     </div>
 
-    <div class="bg-gradient-to-r from-tcr-green to-tcr-dark text-white rounded-2xl shadow-xl p-6 mb-10">
+    <div class="gradient-green text-white rounded-2xl shadow-xl p-6 mb-10">
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-tcr-lime text-sm font-medium mb-1">Welkom terug,</p>
@@ -29,7 +29,7 @@
     
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-            <div class="h-40 bg-gradient-to-br from-tcr-green to-tcr-dark flex items-center justify-center relative overflow-hidden">
+            <div class="h-40 gradient-green flex items-center justify-center relative overflow-hidden">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-300"></div>
                 <span class="text-5xl text-white font-bold relative z-10">A</span>
             </div>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="group bg-white rounded-2xl shadow-lg overflow-hidden opacity-60 cursor-not-allowed">
-            <div class="h-40 bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center relative">
+            <div class="h-40 gradient-gray flex items-center justify-center relative">
                 <span class="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">VOL</span>
                 <span class="text-5xl text-white font-bold">B</span>
             </div>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="group bg-white rounded-2xl shadow-lg overflow-hidden opacity-60">
-            <div class="h-40 bg-gradient-to-br from-tcr-gold to-amber-600 flex items-center justify-center relative">
+            <div class="h-40 gradient-gold flex items-center justify-center relative">
                 <span class="absolute top-2 right-2 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">AFGEROND</span>
                 <span class="text-5xl text-white font-bold">C</span>
             </div>
@@ -88,7 +88,7 @@
             </div>
         </div>
 
-        <a href="/keuzedelen" class="group bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-center justify-center h-full min-h-[320px] border-2 border-dashed border-gray-300 hover:border-tcr-lime">
+        <a href="/keuzedelen" class="group bg-gray-100 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-center justify-center h-full min-h-[320px] border-2 border-dashed border-gray-300 hover:border-tcr-lime">
             <div class="text-center">
                 <span class="text-6xl text-gray-300 group-hover:text-tcr-lime transition-colors">+</span>
                 <p class="text-gray-500 group-hover:text-tcr-green mt-4 font-medium">Bekijk alle keuzedelen</p>

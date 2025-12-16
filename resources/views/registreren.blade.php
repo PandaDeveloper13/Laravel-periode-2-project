@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Techniek College Rotterdam</title>
+    <title>Registreren - Techniek College Rotterdam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
@@ -24,20 +24,6 @@
         }
     </script>
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #003d2b 0%, #1a3a2f 100%);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #d4e600 0%, #f39200 50%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .bg-school {
-            background-image: url('/images/tcr.gebouw.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
         .gradient-green {
             background: linear-gradient(to bottom right, #003d2b, #1a3a2f);
         }
@@ -75,35 +61,34 @@
                         <span class="text-2xl text-white font-bold">TCR</span>
                     </div>
                 </div>
-                <h1 class="text-4xl font-bold mb-6">Keuzedeel Systeem</h1>
+                <h1 class="text-4xl font-bold mb-6">Word lid van ons platform</h1>
                 <p class="text-xl text-gray-200 mb-8">
-                    Welkom bij het Keuzedeel Systeem van Techniek College Rotterdam. 
-                    Hier kun je je inschrijven voor keuzedelen, je voortgang bekijken en je inschrijvingen beheren.
+                    Maak een account aan om toegang te krijgen tot het Keuzedeel Systeem van Techniek College Rotterdam.
                 </p>
                 <ul class="space-y-4 text-gray-200">
                     <li class="flex items-center gap-3">
                         <svg class="w-6 h-6 text-tcr-lime" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
-                        <span>Bekijk beschikbare keuzedelen</span>
+                        <span>Gratis registratie</span>
                     </li>
                     <li class="flex items-center gap-3">
                         <svg class="w-6 h-6 text-tcr-lime" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
-                        <span>Schrijf je eenvoudig in</span>
+                        <span>Direct toegang tot keuzedelen</span>
                     </li>
                     <li class="flex items-center gap-3">
                         <svg class="w-6 h-6 text-tcr-lime" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
-                        <span>Volg je voortgang</span>
+                        <span>Beheer je inschrijvingen</span>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <!-- Rechter helft - Login formulier -->
+        <!-- Rechter helft - Registreer formulier -->
         <div class="w-full lg:w-1/2 flex items-center justify-center p-6">
             <div class="bg-white rounded-2xl shadow-2xl p-10 w-full max-w-md">
                 <div class="text-center mb-8">
@@ -112,25 +97,21 @@
                             <span class="text-xl text-white font-bold">TCR</span>
                         </div>
                     </div>
-                    <h2 class="text-3xl font-bold text-tcr-green mb-2">Inloggen</h2>
-                    <p class="text-gray-600">Log in op je account</p>
+                    <h2 class="text-3xl font-bold text-tcr-green mb-2">Registreren</h2>
+                    <p class="text-gray-600">Maak een nieuw account aan</p>
                 </div>
 
                 <form method="POST" action="" class="space-y-4">
-                    <div class="relative">
-                        <button type="button" disabled class="w-full gradient-green text-white py-4 px-6 rounded-xl font-semibold opacity-60 cursor-not-allowed flex items-center justify-center gap-3">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>
-                            Login met Microsoft
-                        </button>
-                        <p class="text-xs text-center text-gray-500 mt-2">Binnenkort beschikbaar</p>
-                    </div>
-
-                    <div class="relative py-4">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-gray-300"></div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Voornaam</label>
+                            <input type="text" name="voornaam" placeholder="Jan" 
+                                   class="w-full border-2 border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-tcr-lime focus:ring-4 focus:ring-tcr-lime/20 transition-all duration-300">
                         </div>
-                        <div class="relative flex justify-center text-sm">
-                            <span class="px-4 bg-white text-gray-500">Of log in met je account</span>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Achternaam</label>
+                            <input type="text" name="achternaam" placeholder="de Vries" 
+                                   class="w-full border-2 border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-tcr-lime focus:ring-4 focus:ring-tcr-lime/20 transition-all duration-300">
                         </div>
                     </div>
 
@@ -141,28 +122,39 @@
                     </div>
 
                     <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Studentnummer</label>
+                        <input type="text" name="studentnummer" placeholder="123456" 
+                               class="w-full border-2 border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-tcr-lime focus:ring-4 focus:ring-tcr-lime/20 transition-all duration-300">
+                    </div>
+
+                    <div>
                         <label class="block text-gray-700 text-sm font-medium mb-2">Wachtwoord</label>
                         <input type="password" name="password" placeholder="••••••••" 
                                class="w-full border-2 border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-tcr-lime focus:ring-4 focus:ring-tcr-lime/20 transition-all duration-300">
                     </div>
 
-                    <div class="flex items-center justify-between text-sm">
-                        <label class="flex items-center">
-                            <input type="checkbox" class="w-4 h-4 text-tcr-lime border-gray-300 rounded focus:ring-tcr-lime">
-                            <span class="ml-2 text-gray-600">Onthoud mij</span>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Bevestig wachtwoord</label>
+                        <input type="password" name="password_confirmation" placeholder="••••••••" 
+                               class="w-full border-2 border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-tcr-lime focus:ring-4 focus:ring-tcr-lime/20 transition-all duration-300">
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="terms" class="w-4 h-4 mt-1 text-tcr-lime border-gray-300 rounded focus:ring-tcr-lime">
+                        <label for="terms" class="ml-2 text-sm text-gray-600">
+                            Ik ga akkoord met de <a href="#" class="text-tcr-green hover:text-tcr-gold font-medium">algemene voorwaarden</a> en het <a href="#" class="text-tcr-green hover:text-tcr-gold font-medium">privacybeleid</a>
                         </label>
-                        <a href="/wachtwoord-vergeten" class="text-tcr-green hover:text-tcr-gold transition-colors font-medium">Wachtwoord vergeten?</a>
                     </div>
 
                     <div>
                         <button type="submit" class="w-full gradient-lime text-tcr-green py-4 px-6 rounded-xl font-bold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
-                            Inloggen
+                            Account aanmaken
                         </button>
                     </div>
                 </form>
 
                 <div class="mt-8 text-center">
-                    <p class="text-sm text-gray-500">Nog geen account? <a href="/registreren" class="text-tcr-green font-semibold hover:text-tcr-gold transition-colors">Registreren</a></p>
+                    <p class="text-sm text-gray-500">Heb je al een account? <a href="/login" class="text-tcr-green font-semibold hover:text-tcr-gold transition-colors">Inloggen</a></p>
                 </div>
             </div>
         </div>

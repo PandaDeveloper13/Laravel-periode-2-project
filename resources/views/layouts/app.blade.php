@@ -43,6 +43,18 @@
         .gradient-bg {
             background: linear-gradient(135deg, #003d2b 0%, #1a3a2f 100%);
         }
+        .gradient-green {
+            background: linear-gradient(to bottom right, #003d2b, #1a3a2f);
+        }
+        .gradient-lime {
+            background: linear-gradient(to bottom right, #d4e600, #f39200);
+        }
+        .gradient-gray {
+            background: linear-gradient(to bottom right, #9ca3af, #6b7280);
+        }
+        .gradient-gold {
+            background: linear-gradient(to bottom right, #f39200, #d97706);
+        }
         .shadow-soft {
             box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.15);
         }
