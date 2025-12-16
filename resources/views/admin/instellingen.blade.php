@@ -3,42 +3,52 @@
 @section('title', 'Instellingen')
 
 @section('content')
-    <h1>INSTELLINGEN</h1>
+    <h1 class="text-3xl font-bold text-tcr-green mb-6">INSTELLINGEN</h1>
 
-    <section>
-        <h2>INSCHRIJVINGEN BEHEER</h2>
-        <label>
-            <input type="radio" name="inschrijvingen_status" value="gesloten">
-            INSCHRIJVINGEN GESLOTEN
-        </label>
-        <label>
-            <input type="radio" name="inschrijvingen_status" value="open">
-            INSCHRIJVINGEN OPEN
-        </label>
-    </section>
-
-    <section>
-        <h2>DATA BEHEER</h2>
-        <div>
-            <button>VERWIJDER ALLE OUDE INSCHRIJVINGEN</button>
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+        <h2 class="text-xl font-bold text-tcr-green mb-4">INSCHRIJVINGEN BEHEER</h2>
+        <div class="space-y-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="inschrijvingen_status" value="gesloten" class="w-4 h-4 text-tcr-green">
+                <span>INSCHRIJVINGEN GESLOTEN</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="inschrijvingen_status" value="open" class="w-4 h-4 text-tcr-green" checked>
+                <span>INSCHRIJVINGEN OPEN</span>
+            </label>
         </div>
-        <p>LET OP: DEZE ACTIE KAN NIET ONGEDAAN WORDEN</p>
     </section>
 
-    <section>
-        <h2>GEBRUIKERS BEHEER</h2>
-        <p>ADMIN GEBRUIKERS:</p>
-        <ul>
-            <li>- admin@school.nl (HOOFDBEHEERDER)</li>
-            <li>- docent1@school.nl (BEHEERDER)</li>
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+        <h2 class="text-xl font-bold text-tcr-green mb-4">DATA BEHEER</h2>
+        <div class="mb-2">
+            <button class="bg-red-500 text-white px-4 py-2 rounded font-semibold hover:bg-red-600 transition-colors">VERWIJDER ALLE OUDE INSCHRIJVINGEN</button>
+        </div>
+        <p class="text-red-500 text-sm">LET OP: DEZE ACTIE KAN NIET ONGEDAAN WORDEN</p>
+    </section>
+
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+        <h2 class="text-xl font-bold text-tcr-green mb-4">GEBRUIKERS BEHEER</h2>
+        <p class="text-gray-600 mb-2">ADMIN GEBRUIKERS:</p>
+        <ul class="space-y-2 mb-4">
+            <li class="p-3 bg-gray-50 rounded flex justify-between items-center">
+                <span>admin@school.nl</span>
+                <span class="bg-tcr-lime text-tcr-green px-2 py-1 rounded text-sm">HOOFDBEHEERDER</span>
+            </li>
+            <li class="p-3 bg-gray-50 rounded flex justify-between items-center">
+                <span>docent1@school.nl</span>
+                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-sm">BEHEERDER</span>
+            </li>
         </ul>
-        <p>[+ NIEUWE ADMIN TOEVOEGEN]</p>
+        <button class="text-tcr-green hover:text-tcr-lime font-semibold">+ NIEUWE ADMIN TOEVOEGEN</button>
     </section>
 
-    <section>
-        <h2>SYSTEEM INFORMATIE</h2>
-        <p>VERSIE: 1.0.0</p>
-        <p>LAATSTE UPDATE: 11-12-2025</p>
-        <p>DATABASE: VERBONDEN</p>
+    <section class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-bold text-tcr-green mb-4">SYSTEEM INFORMATIE</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <p class="text-gray-700"><span class="font-semibold">VERSIE:</span> 1.0.0</p>
+            <p class="text-gray-700"><span class="font-semibold">LAATSTE UPDATE:</span> 11-12-2025</p>
+            <p class="text-gray-700"><span class="font-semibold">DATABASE:</span> <span class="text-green-600">VERBONDEN</span></p>
+        </div>
     </section>
 @endsection
