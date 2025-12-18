@@ -42,7 +42,7 @@
                     <td class="px-4 py-3">15/30</td>
                     <td class="px-4 py-3">
                         <button class="text-tcr-green hover:text-tcr-lime mr-2">BEWERKEN</button>
-                        <button class="text-red-500 hover:text-red-700">ANNUIT</button>
+                        <button class="text-red-500 hover:text-red-700">ANNULEREN</button>
                     </td>
                 </tr>
                 <tr class="border-b border-gray-200 hover:bg-gray-50">
@@ -53,7 +53,7 @@
                     <td class="px-4 py-3"><span class="text-red-600 font-semibold">30/30</span></td>
                     <td class="px-4 py-3">
                         <button class="text-tcr-green hover:text-tcr-lime mr-2">BEWERKEN</button>
-                        <button class="text-red-500 hover:text-red-700">ANNUIT</button>
+                        <button class="text-red-500 hover:text-red-700">ANNULEREN</button>
                     </td>
                 </tr>
                 <tr class="border-b border-gray-200 hover:bg-gray-50">
@@ -64,7 +64,7 @@
                     <td class="px-4 py-3">0/30</td>
                     <td class="px-4 py-3">
                         <button class="text-tcr-green hover:text-tcr-lime mr-2">BEWERKEN</button>
-                        <button class="text-red-500 hover:text-red-700">ANNUIT</button>
+                        <button class="text-red-500 hover:text-red-700">ANNULEREN</button>
                     </td>
                 </tr>
             </tbody>

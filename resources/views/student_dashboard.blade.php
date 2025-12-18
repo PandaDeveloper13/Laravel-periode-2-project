@@ -11,9 +11,8 @@
     <div class="gradient-green text-white rounded-2xl shadow-xl p-6 mb-10">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-tcr-lime text-sm font-medium mb-1">Welkom terug,</p>
-                <p class="text-2xl font-bold mb-2">[Student Naam]</p>
-                <p class="text-gray-300">Studentnummer: 123456</p>
+               <p class="text-2xl font-bold mb-2">Hallo, {{ auth()->user()->voornaam }}!</p>
+               <p class="text-gray-300">Studentnummer: {{ auth()->user()->studentnummer }}</p>
             </div>
             <div class="text-right">
                 <p class="text-sm text-gray-300 mb-1">Inschrijvingen status</p>

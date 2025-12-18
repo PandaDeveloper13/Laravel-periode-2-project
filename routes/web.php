@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,17 +27,20 @@ Route::post('/keuzedelen/toevoegen', [KeuzedeelController::class, 'store'])
     ->name('admin.keuzedelen.store');
 
 
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/registreren', [AuthController::class, 'showRegister']);
+
+Route::post('/registreren', [AuthController::class, 'register']);
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', function () {
-    return view('login');
-});
 
-Route::get('/registreren', function () {
-    return view('registreren');
-});
 
 Route::get('/wachtwoord-vergeten', function () {
     return view('wachtwoord-vergeten');

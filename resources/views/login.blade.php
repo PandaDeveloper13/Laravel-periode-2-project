@@ -116,7 +116,8 @@
                     <p class="text-gray-600">Log in op je account</p>
                 </div>
 
-                <form method="POST" action="" class="space-y-4">
+               <form method="POST" action="/login" class="space-y-4">
+    @csrf
                     <div class="relative">
                         <button type="button" disabled class="w-full gradient-green text-white py-4 px-6 rounded-xl font-semibold opacity-60 cursor-not-allowed flex items-center justify-center gap-3">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>

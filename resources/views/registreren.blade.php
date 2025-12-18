@@ -101,7 +101,18 @@
                     <p class="text-gray-600">Maak een nieuw account aan</p>
                 </div>
 
-                <form method="POST" action="" class="space-y-4">
+               <form method="POST" action="/registreren" class="space-y-4">
+    @csrf
+
+    @if($errors->any())
+    <div class="bg-red-100 text-red-700 p-3 rounded-xl mb-4">
+        <ul class="list-disc pl-5">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-gray-700 text-sm font-medium mb-2">Voornaam</label>
@@ -117,13 +128,13 @@
 
                     <div>
                         <label class="block text-gray-700 text-sm font-medium mb-2">E-mailadres</label>
-                        <input type="email" name="email" placeholder="naam@voorbeeld.nl" 
+                        <input type="email" name="email" placeholder="jan@gmail.com" 
                                class="w-full border-2 border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-tcr-lime focus:ring-4 focus:ring-tcr-lime/20 transition-all duration-300">
                     </div>
 
                     <div>
                         <label class="block text-gray-700 text-sm font-medium mb-2">Studentnummer</label>
-                        <input type="text" name="studentnummer" placeholder="123456" 
+                       <input type="text" name="studentnummer" placeholder="9025xxx (7 cijfers)" 
                                class="w-full border-2 border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-tcr-lime focus:ring-4 focus:ring-tcr-lime/20 transition-all duration-300">
                     </div>
 
@@ -140,7 +151,7 @@
                     </div>
 
                     <div class="flex items-start">
-                        <input type="checkbox" id="terms" class="w-4 h-4 mt-1 text-tcr-lime border-gray-300 rounded focus:ring-tcr-lime">
+                        <input type="checkbox" name="terms" id="terms" required class="w-4 h-4 mt-1 text-tcr-lime border-gray-300 rounded focus:ring-tcr-lime">
                         <label for="terms" class="ml-2 text-sm text-gray-600">
                             Ik ga akkoord met de <a href="#" class="text-tcr-green hover:text-tcr-gold font-medium">algemene voorwaarden</a> en het <a href="#" class="text-tcr-green hover:text-tcr-gold font-medium">privacybeleid</a>
                         </label>
