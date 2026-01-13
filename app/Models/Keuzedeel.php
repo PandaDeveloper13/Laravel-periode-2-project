@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
-class Keuzedeel extends Model {
+class Keuzedeel extends Model
+{
     protected $table = 'keuzedelen';
     
     protected $fillable = [
