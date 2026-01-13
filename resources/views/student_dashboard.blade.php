@@ -64,7 +64,7 @@
                         <div class="bg-tcr-lime h-2 rounded-full" style="width: {{ $percentage }}%"></div>
                     </div>
 
-                    <a href="{{ route('keuzedeel.show', $k->id) }}"
+                    <a href="{{ route('keuzedeel', $k->id) }}"
                        class="block text-center w-full bg-tcr-lime text-tcr-green py-3 rounded-lg font-bold hover:bg-tcr-gold hover:text-white transition-all duration-300 {{ $isVol ? 'pointer-events-none opacity-60' : '' }}">
                         Meer informatie
                     </a>
