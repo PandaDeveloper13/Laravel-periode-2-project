@@ -14,10 +14,10 @@
     @if(isset($keuzedeel))
         <h1 class="text-3xl font-bold text-tcr-green mb-4">{{ $keuzedeel->naam }}</h1>
         <p class="text-gray-700 mb-6">{{ $keuzedeel->beschrijving }}</p>
-        
+
 
     @elseif(isset($keuzedelen))
-        {{-- hier komt je normale overzicht (foreach cards) --}}
+
     @endif
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -99,27 +99,27 @@
                 <dl class="space-y-4">
                     <div>
                         <dt class="text-sm text-gray-500 mb-1">Docent</dt>
-                        <dd class="font-medium text-gray-900">Dhr. J. van der Berg</dd>
+                        <dd class="font-medium text-gray-900">{{$keuzedeel-> docent}}</dd>
                     </div>
                     <div>
                         <dt class="text-sm text-gray-500 mb-1">Locatie</dt>
-                        <dd class="font-medium text-gray-900">Gebouw A, Lokaal 2.14</dd>
+                        <dd class="font-medium text-gray-900">{{$keuzedeel-> locatie}}</dd>
                     </div>
                     <div>
                         <dt class="text-sm text-gray-500 mb-1">Periode</dt>
-                        <dd class="font-medium text-gray-900">Periode 1 (Sep - Jan)</dd>
+                        <dd class="font-medium text-gray-900">{{$keuzedeel-> periode}}</dd>
                     </div>
                     <div>
                         <dt class="text-sm text-gray-500 mb-1">Studiepunten</dt>
-                        <dd class="font-medium text-gray-900">5 ECTS</dd>
+                        <dd class="font-medium text-gray-900"></dd>
                     </div>
                     <div>
                         <dt class="text-sm text-gray-500 mb-1">Minimum deelnemers</dt>
-                        <dd class="font-medium text-gray-900">15 studenten</dd>
+                        <dd class="font-medium text-gray-900">{{$keuzedeel-> min_studenten}}</dd>
                     </div>
                     <div>
                         <dt class="text-sm text-gray-500 mb-1">Maximum deelnemers</dt>
-                        <dd class="font-medium text-gray-900">30 studenten</dd>
+                        <dd class="font-medium text-gray-900">{{$keuzedeel-> max_studenten}}</dd>
                     </div>
                 </dl>
             </div>
