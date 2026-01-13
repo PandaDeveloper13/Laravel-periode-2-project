@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <h2 class="text-2xl font-bold text-tcr-green mb-6">Beschikbare Keuzedelen</h2><h2 class="text-2xl font-bold text-tcr-green mb-6">Beschikbare Keuzedelen</h2>
+    <h2 class="text-2xl font-bold text-tcr-green mb-6">Beschikbare Keuzedelen</h2>
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         @forelse($keuzedelen as $k)
@@ -64,7 +64,7 @@
                         <div class="bg-tcr-lime h-2 rounded-full" style="width: {{ $percentage }}%"></div>
                     </div>
 
-                    <a href="{{ route('keuzedeel', $k->id) }}"
+                    <a href="{{ route('keuzedeel.show', $k->id) }}"
                        class="block text-center w-full bg-tcr-lime text-tcr-green py-3 rounded-lg font-bold hover:bg-tcr-gold hover:text-white transition-all duration-300 {{ $isVol ? 'pointer-events-none opacity-60' : '' }}">
                         Meer informatie
                     </a>

@@ -14,8 +14,7 @@
     @if(isset($keuzedeel))
         <h1 class="text-3xl font-bold text-tcr-green mb-4">{{ $keuzedeel->naam }}</h1>
         <p class="text-gray-700 mb-6">{{ $keuzedeel->beschrijving }}</p>
-
-        <a href="{{ url('/keuzedelen') }}" class="underline text-tcr-green">← Terug naar alle keuzedelen</a>
+        
 
     @elseif(isset($keuzedelen))
         {{-- hier komt je normale overzicht (foreach cards) --}}
@@ -32,11 +31,11 @@
                 <div class="p-8">
                     <div class="flex items-start justify-between mb-6">
                         <div>
-                            <h1 class="text-3xl font-bold text-tcr-green mb-2">Keuzedeel Web Development</h1>
+                            <h1 class="text-3xl font-bold text-tcr-green mb-2">{{ $keuzedeel->naam }}</h1>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-tcr-lime/20 text-tcr-green rounded-full text-sm font-medium">Periode 1</span>
-                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Code: 26604K0059</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">15/30 plaatsen</span>
+                                <span class="px-3 py-1 bg-tcr-lime/20 text-tcr-green rounded-full text-sm font-medium">{{ $keuzedeel->Periode}} </span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">{{ $keuzedeel->code }}</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">{{ $keuzedeel->student }}</span>
                             </div>
                         </div>
                     </div>
@@ -49,9 +48,7 @@
                             Beschrijving
                         </h2>
                         <p class="text-gray-700 leading-relaxed">
-                            In dit keuzedeel leer je de fundamenten van moderne web development. Je werkt met HTML5, CSS3, JavaScript en
-                            populaire frameworks zoals React en Vue.js. Aan het einde van dit keuzedeel ben je in staat om professionele,
-                            responsive websites te bouwen die voldoen aan de laatste industriestandaarden.
+                            {{ $keuzedeel->beschrijving }}
                         </p>
                     </section>
 
