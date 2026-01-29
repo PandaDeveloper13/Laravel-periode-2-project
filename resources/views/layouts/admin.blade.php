@@ -85,14 +85,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/admin/overzicht" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition-all duration-200 group">
-                            <svg class="w-5 h-5 text-gray-400 group-hover:text-tcr-lime" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
-                            </svg>
-                            <span class="font-medium">Overzicht</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="/admin/studenten/inlezen" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition-all duration-200 group">
                             <svg class="w-5 h-5 text-gray-400 group-hover:text-tcr-lime" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>

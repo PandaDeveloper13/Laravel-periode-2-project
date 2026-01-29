@@ -50,6 +50,19 @@ class InschrijvingController extends Controller {
             ], 422);
         }
         
+        // Check of gebruiker al ingeschreven is voor een keuzedeel in dezelfde periode
+        $inschrijvingInPeriode = $user->keuzedelen()
+            ->where('periode', $keuzedeel->periode)
+            ->wherePivot('status', 'pending')
+            ->first();
+        
+        if ($inschrijvingInPeriode) {
+            return response()->json([
+                'success' => false, 
+                'message' => 'Je bent al ingeschreven voor een keuzedeel in periode ' . $keuzedeel->periode . ' (' . $inschrijvingInPeriode->naam . '). Je kunt maar 1 keuzedeel per periode kiezen.'
+            ], 422);
+        }
+        
         // Check max_studenten niet overschreden
         $huidigeInschrijvingen = $keuzedeel->inschrijvingen()->count();
         if ($huidigeInschrijvingen >= $keuzedeel->max_studenten) {
@@ -103,5 +116,44 @@ class InschrijvingController extends Controller {
             'success' => true,
             'message' => 'Je bent succesvol uitgeschreven!'
         ]);
+    }
+
+    public function export()
+    {
+        $inschrijvingen = Inschrijving::with(['user', 'keuzedeel'])
+            ->orderBy('keuzedeel_id')
+            ->orderBy('user_id')
+            ->get();
+
+        $filename = 'inschrijvingen_' . date('Y-m-d_H-i-s') . '.csv';
+        
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename=\"$filename\"",
+        ];
+
+        $callback = function() use ($inschrijvingen) {
+            $file = fopen('php://output', 'w');
+            
+            fputcsv($file, ['Studentnummer', 'Voornaam', 'Achternaam', 'Email', 'Keuzedeel', 'Periode', 'Status', 'Cijfer', 'Inschrijfdatum'], ';');
+            
+            foreach ($inschrijvingen as $inschrijving) {
+                fputcsv($file, [
+                    $inschrijving->user->studentnummer ?? '',
+                    $inschrijving->user->voornaam ?? $inschrijving->user->name,
+                    $inschrijving->user->achternaam ?? '',
+                    $inschrijving->user->email,
+                    $inschrijving->keuzedeel->naam,
+                    $inschrijving->keuzedeel->periode,
+                    $inschrijving->status,
+                    $inschrijving->cijfer ?? '',
+                    $inschrijving->created_at->format('d-m-Y H:i'),
+                ], ';');
+            }
+            
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
     }
 }

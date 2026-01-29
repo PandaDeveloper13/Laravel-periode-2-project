@@ -75,11 +75,11 @@
                         </ul>
                     </section>
 
-                    <div class="bg-green-50 rounded-xl p-6">
+                    <div class="capacity-card">
                         <h3 class="font-bold text-tcr-green mb-3">Capaciteit</h3>
                         <div class="mb-3">
-                            <div class="flex justify-between text-sm mb-2">
-                                <span class="text-gray-600">Bezetting</span>
+                            <div class="info-row">
+                                <span class="info-label">Bezetting</span>
                                 <span class="font-medium text-tcr-green">{{ $bezetting }} van {{ $keuzedeel->max_studenten }} plaatsen</span>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-3">
@@ -94,7 +94,7 @@
 
         <div class="lg:col-span-1 space-y-6">
             <div class="bg-white rounded-2xl shadow-xl p-6">
-                <h3 class="font-bold text-tcr-green mb-4 text-lg">Details</h3>
+                <h2 class="text-xl font-bold text-tcr-green mb-4">Keuzedeel Informatie</h2>
                 <dl class="space-y-4">
                     @if($keuzedeel->docent)
                     <div>

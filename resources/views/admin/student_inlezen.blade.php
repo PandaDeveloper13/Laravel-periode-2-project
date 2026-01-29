@@ -7,7 +7,7 @@
 
     @if(session('success'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-            {{ session('success') }}
+            {!! session('success') !!}
         </div>
     @endif
 
@@ -17,9 +17,28 @@
         </div>
     @endif
 
+    {{-- Toon gedetailleerde statistieken na import --}}
+    @if(session('importStats'))
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div class="text-3xl font-bold text-blue-600">{{ session('importStats')['studenten'] }}</div>
+                <div class="text-sm text-blue-700">Studenten geïmporteerd</div>
+            </div>
+            <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div class="text-3xl font-bold text-green-600">{{ count(session('importStats')['behaalde_keuzedelen']) }}</div>
+                <div class="text-sm text-green-700">Keuzedelen met behaalde resultaten</div>
+            </div>
+            <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                <div class="text-3xl font-bold text-purple-600">{{ session('importStats')['keuzedelen_nieuw'] }}</div>
+                <div class="text-sm text-purple-700">Nieuwe keuzedelen aangemaakt</div>
+            </div>
+        </div>
+    @endif
+
     <div class="bg-white rounded-lg shadow p-6 mb-6">
         <p class="text-gray-700 mb-2">UPLOAD EEN CSV BESTAND MET STUDENTGEGEVENS EN KEUZEDEEL HISTORIE.</p>
-        <p class="text-red-500 text-sm">OUDE INSCHRIJVINGEN WORDEN AUTOMATISCH BIJGEWERKT.</p>
+        <p class="text-red-500 text-sm mb-2">OUDE INSCHRIJVINGEN WORDEN AUTOMATISCH BIJGEWERKT.</p>
+        <p class="text-green-600 text-sm">✓ BEHAALDE KEUZEDELEN WORDEN AUTOMATISCH GEDETECTEERD</p>
     </div>
 
     <form action="{{ route('admin.studenten.import') }}" method="POST" enctype="multipart/form-data">
@@ -62,11 +81,69 @@
             </ul>
         </div>
 
-        <div>
+        <div class="flex justify-center mt-6">
             <button type="submit" 
-                    class="bg-tcr-lime text-tcr-green px-6 py-3 rounded font-semibold hover:bg-tcr-gold hover:text-white transition-colors">
-                BESTAND INLEZEN EN VERWERKEN
+                    class="bg-tcr-lime text-tcr-green font-bold py-3 px-8 rounded-full hover:bg-tcr-gold hover:text-white transition-colors">
+                IMPORTEER CSV
             </button>
         </div>
     </form>
+
+    {{-- Toon behaalde keuzedelen details --}}
+    @if(session('behaaldeKeuzedelen'))
+        <div class="bg-white rounded-lg shadow p-6 mt-6">
+            <h2 class="text-xl font-bold text-tcr-green mb-4">📊 BEHAALDE KEUZEDELEN PER VAK</h2>
+            <div class="space-y-4">
+                @foreach(session('behaaldeKeuzedelen') as $code => $info)
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-semibold text-lg">{{ $info['naam'] }}</h3>
+                                <p class="text-sm text-gray-600">Code: {{ $code }}</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">
+                                    {{ count($info['studenten']) }} student(en) behaald
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button onclick="toggleStudenten('{{ $code }}')" class="text-sm text-blue-600 hover:text-blue-800 font-medium">
+                                Toon studenten ▼
+                            </button>
+                            <div id="studenten-{{ $code }}" class="hidden mt-2">
+                                <div class="bg-gray-50 rounded p-3">
+                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                        @foreach($info['studenten'] as $student)
+                                            <span class="text-sm text-gray-700">• {{ $student }}</span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <script>
+            function toggleStudenten(code) {
+                const element = document.getElementById('studenten-' + code);
+                element.classList.toggle('hidden');
+                event.target.textContent = element.classList.contains('hidden') ? 'Toon studenten ▼' : 'Verberg studenten ▲';
+            }
+        </script>
+    @endif
+
+    {{-- Informatie over CSV formaat --}}
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-6">
+        <h2 class="text-lg font-semibold text-blue-900 mb-3">ℹ️ CSV FORMAAT INFORMATIE</h2>
+        <ul class="space-y-2 text-sm text-blue-800">
+            <li>• Het systeem detecteert automatisch behaalde keuzedelen op basis van cijfers en resultaten</li>
+            <li>• Cijfer ≥ 5.5 = Behaald</li>
+            <li>• "V", "Voldoende", "G", "Goed" = Behaald</li>
+            <li>• "x", "pv" of leeg = Nog bezig/Gepland</li>
+            <li>• Keuzedelen die nog niet bestaan worden automatisch aangemaakt</li>
+        </ul>
+    </div>
 @endsection

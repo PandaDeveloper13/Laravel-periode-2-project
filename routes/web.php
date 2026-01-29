@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InschrijvingController;
 use App\Http\Controllers\KeuzedeelController;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CsvImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +53,16 @@ Route::get('/presentatie', function () {
 Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/dashboard', function () {
-        return view('admin.dashboard');
+        $totaalStudenten = \App\Models\User::where('rol', 'student')->count();
+        $ingeschreven = \App\Models\Inschrijving::where('status', 'pending')->distinct('user_id')->count('user_id');
+        $actieveKeuzedelen = \App\Models\Keuzedeel::where('actief', 1)->count();
+        
+        $recenteActiviteit = \App\Models\Inschrijving::with(['user', 'keuzedeel'])
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+        
+        return view('admin.dashboard', compact('totaalStudenten', 'ingeschreven', 'actieveKeuzedelen', 'recenteActiviteit'));
     })->name('dashboard');
 
 
@@ -77,20 +86,21 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->name('keuzedelen.verwijderen');
 
 
-    Route::get('/overzicht', function () {
-        return view('admin.overzicht');
-    })->name('overzicht');
-
     Route::get('/instellingen', function () {
-        return view('admin.instellingen');
+        $adminGebruikers = \App\Models\User::where('rol', 'admin')->get();
+        
+        return view('admin.instellingen', compact('adminGebruikers'));
     })->name('instellingen');
 
-    Route::get('/studenten/inlezen', [StudentController::class, 'showImportForm'])
+    Route::get('/studenten/inlezen', [CsvImportController::class, 'showImportForm'])
         ->name('studenten.inlezen');
 
-    Route::post('/studenten/import', [StudentController::class, 'importCsv'])
+    Route::post('/studenten/import', [CsvImportController::class, 'importCsv'])
         ->name('studenten.import');
 
     Route::delete('/inschrijvingen/verwijder-oud', [InschrijvingController::class, 'deleteOld'])
         ->name('inschrijvingen.deleteOld');
+
+    Route::get('/inschrijvingen/export', [InschrijvingController::class, 'export'])
+        ->name('inschrijvingen.export');
 });

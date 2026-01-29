@@ -42,14 +42,18 @@
         <h2 class="text-xl font-bold text-tcr-green mb-4">GEBRUIKERS BEHEER</h2>
         <p class="text-gray-600 mb-2">ADMIN GEBRUIKERS:</p>
         <ul class="space-y-2 mb-4">
-            <li class="p-3 bg-gray-50 rounded flex justify-between items-center">
-                <span>admin@school.nl</span>
-                <span class="bg-tcr-lime text-tcr-green px-2 py-1 rounded text-sm">HOOFDBEHEERDER</span>
-            </li>
-            <li class="p-3 bg-gray-50 rounded flex justify-between items-center">
-                <span>docent1@school.nl</span>
-                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-sm">BEHEERDER</span>
-            </li>
+            @forelse($adminGebruikers as $index => $admin)
+                <li class="p-3 bg-gray-50 rounded flex justify-between items-center">
+                    <span>{{ $admin->email }}</span>
+                    @if($index === 0)
+                        <span class="bg-tcr-lime text-tcr-green px-2 py-1 rounded text-sm">HOOFDBEHEERDER</span>
+                    @else
+                        <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-sm">BEHEERDER</span>
+                    @endif
+                </li>
+            @empty
+                <li class="p-3 bg-gray-50 rounded text-gray-500">GEEN ADMIN GEBRUIKERS GEVONDEN</li>
+            @endforelse
         </ul>
         <button class="text-tcr-green hover:text-tcr-lime font-semibold">+ NIEUWE ADMIN TOEVOEGEN</button>
     </section>
