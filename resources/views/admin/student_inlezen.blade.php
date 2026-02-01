@@ -135,15 +135,4 @@
         </script>
     @endif
 
-    {{-- Informatie over CSV formaat --}}
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-6">
-        <h2 class="text-lg font-semibold text-blue-900 mb-3">ℹ️ CSV FORMAAT INFORMATIE</h2>
-        <ul class="space-y-2 text-sm text-blue-800">
-            <li>• Het systeem detecteert automatisch behaalde keuzedelen op basis van cijfers en resultaten</li>
-            <li>• Cijfer ≥ 5.5 = Behaald</li>
-            <li>• "V", "Voldoende", "G", "Goed" = Behaald</li>
-            <li>• "x", "pv" of leeg = Nog bezig/Gepland</li>
-            <li>• Keuzedelen die nog niet bestaan worden automatisch aangemaakt</li>
-        </ul>
-    </div>
 @endsection

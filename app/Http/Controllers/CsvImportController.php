@@ -191,32 +191,17 @@ class CsvImportController extends Controller
                     
                     if ($keuzedeel) {
                         $status = 'pending';
-                        $cijfer = null;
                         $isBehaald = false;
                         
-                        // Detecteer verschillende scenario's voor behaalde keuzedelen
-                        if (is_numeric($res) && floatval($res) >= 5.5) {
-                            // Cijfer 5.5 of hoger = behaald
-                            $cijfer = floatval($res);
+                        // Detecteer behaalde keuzedelen
+                        if (strtolower($res) === 'v' || strtolower($res) === 'vold' || strtolower($res) === 'voldoende') {
                             $status = 'completed';
                             $isBehaald = true;
-                        } elseif (strtolower($res) === 'v' || strtolower($res) === 'vold' || strtolower($res) === 'voldoende') {
-                            // Voldoende = behaald
-                            $status = 'completed';
-                            $isBehaald = true;
-                            $cijfer = 6.0; // Default cijfer voor voldoende
                         } elseif (strtolower($res) === 'g' || strtolower($res) === 'goed') {
-                            // Goed = behaald
                             $status = 'completed';
                             $isBehaald = true;
-                            $cijfer = 8.0; // Default cijfer voor goed
                         } elseif ($res === 'x' || strtolower($res) === 'pv' || empty($res)) {
-                            // x, pv of leeg = nog bezig/gepland
                             $status = 'pending';
-                        } elseif (is_numeric($res) && floatval($res) < 5.5 && floatval($res) > 0) {
-                            // Cijfer onder 5.5 = niet behaald maar wel geprobeerd
-                            $cijfer = floatval($res);
-                            $status = 'failed';
                         }
                         
                         // Sla de inschrijving op
@@ -226,8 +211,7 @@ class CsvImportController extends Controller
                                 'keuzedeel_id' => $keuzedeel->id
                             ],
                             [
-                                'status' => $status,
-                                'cijfer' => $cijfer
+                                'status' => $status
                             ]
                         );
                         
@@ -235,10 +219,9 @@ class CsvImportController extends Controller
                         if ($isBehaald) {
                             $studentKeuzedelen['behaald'][] = [
                                 'code' => $keuzedeelCode,
-                                'naam' => $keuzedeel->naam,
-                                'cijfer' => $cijfer
+                                'naam' => $keuzedeel->naam
                             ];
-                            Log::info("Student {$user->studentnummer} heeft keuzedeel {$keuzedeelCode} behaald met resultaat: {$res}");
+                            Log::info("Student {$user->studentnummer} heeft keuzedeel {$keuzedeelCode} behaald");
                         } elseif ($status === 'pending') {
                             $studentKeuzedelen['in_progress'][] = [
                                 'code' => $keuzedeelCode,
